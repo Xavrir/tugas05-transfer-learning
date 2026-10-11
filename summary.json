@@ -1,0 +1,93 @@
+{
+  "seed": 42,
+  "batch_size": 32,
+  "max_epochs": 20,
+  "patience": 4,
+  "optimizer": "AdamW(weight_decay=1e-2)",
+  "device": "cuda",
+  "split": {
+    "train": 1392,
+    "val": 298,
+    "test": 299
+  },
+  "runs": [
+    {
+      "run": "B1_scratch",
+      "trainable_params": 11181642,
+      "lr": {
+        "all": 0.001
+      },
+      "best_epoch": 10,
+      "epochs_run": 14,
+      "train_time_s": 109.3,
+      "train_acc": 0.47772988505747127,
+      "val_acc": 0.4261744966442953,
+      "test_acc": 0.44481605351170567,
+      "test_macro_f1": 0.4100665509795046,
+      "gap_train_val": 0.05155538841317597
+    },
+    {
+      "run": "B2_feature_extraction",
+      "trainable_params": 5130,
+      "lr": {
+        "fc": 0.001
+      },
+      "best_epoch": 12,
+      "epochs_run": 16,
+      "train_time_s": 78.7,
+      "train_acc": 0.9310344827586207,
+      "val_acc": 0.8523489932885906,
+      "test_acc": 0.8494983277591973,
+      "test_macro_f1": 0.8507638506299189,
+      "gap_train_val": 0.07868548947003007
+    },
+    {
+      "run": "B3_finetune_aug",
+      "trainable_params": 8398858,
+      "lr": {
+        "layer4": 0.0001,
+        "fc": 0.001
+      },
+      "best_epoch": 2,
+      "epochs_run": 6,
+      "train_time_s": 31.7,
+      "train_acc": 0.9454022988505747,
+      "val_acc": 0.8590604026845637,
+      "test_acc": 0.862876254180602,
+      "test_macro_f1": 0.8618114329975812,
+      "gap_train_val": 0.08634189616601096
+    },
+    {
+      "run": "B4_finetune_noaug",
+      "trainable_params": 8398858,
+      "lr": {
+        "layer4": 0.0001,
+        "fc": 0.001
+      },
+      "best_epoch": 2,
+      "epochs_run": 6,
+      "train_time_s": 22.1,
+      "train_acc": 0.9942528735632183,
+      "val_acc": 0.8557046979865772,
+      "test_acc": 0.8729096989966555,
+      "test_macro_f1": 0.8725850254916413,
+      "gap_train_val": 0.13854817557664112
+    },
+    {
+      "run": "B5_efficientnet_b0",
+      "trainable_params": 3168550,
+      "lr": {
+        "features[6:]": 0.0001,
+        "classifier": 0.001
+      },
+      "best_epoch": 7,
+      "epochs_run": 11,
+      "train_time_s": 72.8,
+      "train_acc": 0.9942528735632183,
+      "val_acc": 0.8993288590604027,
+      "test_acc": 0.9364548494983278,
+      "test_macro_f1": 0.9365221333411325,
+      "gap_train_val": 0.09492401450281562
+    }
+  ]
+}
